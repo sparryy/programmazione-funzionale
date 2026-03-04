@@ -31,7 +31,7 @@ Gli operatori vengono visti come funzioni, il `+` prende come parametri `a` e `b
 
 Tutte le espressioni finiscono con `;`:
 
-```bash
+```ml
 > 1+2*3;
 
 val it = 7: int
@@ -49,63 +49,93 @@ Utili per:
 - identificare gli errori
 - ottimizzazione
 
-Tipi base: // ricopiare gli esempi da moodle
-- int (per negativo uso la tilde `~`)
-    * val it = 3: int;
-    * val it = ~3: int;
-- real: per renderlo reale serve almeno una cifra dopo il `.`, posso usare notazione esponenziale
-    * 
+**TIPI BASE:**
+- int (per i negativi uso la tilde `~`)
+```ml
+val it = 3: int;
+val it = ~3: int;
+```
+- real (per renderlo reale serve almeno una cifra dopo il `.`, posso anche usare notazione esponenziale)
+```ml
+> ~123.0;
+val it = ~123.0: real
+> 3E~3;
+val it = 0.003: real
+> 3.14e12;
+val it = 3.14E12: real
+```
 - bool: `true` e `false`
-    * 
+```ml
+> true;
+val it = true: bool
+> 1=3;
+val it = false: bool
+```
 - char: `#"a"`
-    * 
+```ml
+> #"a";
+val it = #"a": char
+```
 - string:
-    * 
+```ml
+>"foo";
+val it = "foo": string
+```
+
+> Special characters for strings:
+>
+> - `\n`: newline
+> - `\t`: tab
+> - `\\`: Backslash
+> - `\"`: Double-quote
+> - `\xyz`: ASCII character with this code (three digits) 
+
 - unit: per espressioni senza valore, vale ()
 
-### operatori
+### Operatori
 
-aritmetici:
+**Aritmetici:**
 * \+ e \-
 * \*, /, div (round floor), mod
 * ~ meno
 
-regole di precedenza:
-1. espressioi tra parentesi
+**Regole di precedenza:**
+1. espressioni tra parentesi
 2. operatori unari
 3. prodotti e divisioni
 4. addizioni e sottrazioni
 
-infissi:
+**Infissi:**
 
 ```Function: + : int * int -> int```
 
 `*` è usato per le tuple, `+` ha solo duple
 
-stringe
+**Stringe:**
 
-^ concatenazione
+`^` concatenazione
 
+```ml
 > "house" ^ "cat";
 val it = "housecat": string
+```
 
-comparazioni
+**Comparazioni:**
 
 =, <, >, <=, >=, <>
 
-uguaglianza e non uguaglianza non si possono fare con i reali
+Uguaglianza e non uguaglianza non si possono fare con i reali.
 
-logici
-
+**Logici:**
 - not
 - andalso: se il primo è falso non si valuta il secondo
 - orelse: se il primo è vero non si valuta il secondo
 
-if-then-else
+**if-then-else**
 
 ```if <p> then <exp1> else <exp2>```
 
-else è necessario
+`else` è necessario
 
-entrambi i casi devono avere un valore di ritorno che siano dello stesso tipo
+Entrambi i casi devono avere un valore di ritorno che sia dello stesso tipo
 
