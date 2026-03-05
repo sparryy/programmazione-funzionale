@@ -1,5 +1,3 @@
-# Programmazione Funzionale
-
 # Lezione 26/2
 
 ## Poly
@@ -137,5 +135,4 @@ Uguaglianza e non uguaglianza non si possono fare con i reali.
 
 `else` è necessario
 
-Entrambi i casi devono avere un valore di ritorno che sia dello stesso tipo
-
+Entrambi i casi devono avere un valore di ritorno che sia dello stesso tipo.
