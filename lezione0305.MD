@@ -265,8 +265,8 @@ Soluzione:
 ```ml
 > 
 
-> 
-
+> ((true, 1), #"a");
+val it = ((true, 1), #"a"): (bool * int) * char
 > 
 
 ```
