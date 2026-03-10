@@ -10,7 +10,13 @@ Per entrare basta scrivere `poly` su terminale, Quando sei dentro vedi `>`.
 >
 > Per uscire `CTRL+D`
 
-`rlwrap poly` per utilizzare il cursore liberamente.
+`poly` esegue poly, facendo entrare nell'ambiente
+
+`rlwrap poly` esegue poly, mantiene la memoria dei comandi all'interno di poly
+
+`use "foo"` esegue il file mentre dentro l'ambiente
+
+`poly < foo` esegue il file poly
 
 ### Espressioni
 
@@ -80,13 +86,13 @@ val it = #"a": char
 val it = "foo": string
 ```
 
-> Special characters for strings:
+> Caratteri speciali per le stringhe:
 >
-> - `\n`: newline
-> - `\t`: tab
-> - `\\`: Backslash
-> - `\"`: Double-quote
-> - `\xyz`: ASCII character with this code (three digits) 
+> - `\n`: nuova linea
+> - `\t`: tabulazione
+> - `\\`: backslash
+> - `\"`: virgolette
+> - `\xyz`: carattere ASCII con quel codice (3 cifre) 
 
 - unit: per espressioni senza valore, vale ()
 
