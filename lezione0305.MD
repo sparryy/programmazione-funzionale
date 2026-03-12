@@ -36,7 +36,7 @@ missing)
 
 ### Liste
 
-Rappresentate dalle []
+Rappresentate dalle `[]`
 ```ml
 > [1,2,3];
 val it = [1, 2, 3]: int list

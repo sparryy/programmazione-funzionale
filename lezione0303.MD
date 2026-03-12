@@ -49,7 +49,7 @@ Allora in questo caso posso fare conversioni (implicite o esplicite).
 Tutte le espressioni finiscono con `;`
 ```ml
 1+2*3; diventa  
-> ```val it = 7: int;```  
+> val it = 7: int;  
 ```
 `if <p> then <esp1> else <esp2>;`   
 Anche else è obbligatorio, e i tipi in then e else devono essere uguali:  
