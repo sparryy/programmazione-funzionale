@@ -1,7 +1,5 @@
 (* Lezione 9/4 *)
 
-(* commento per exec
-
 (*------------------------------------------------*)
 
 (* Es. 1 - Funzioni base *)
@@ -86,6 +84,72 @@ fact(~2);
 
 (*------------------------------------------------*)
 
-*)
 (* Es. 5 - Tabula *)
 
+fun tabulate(a,d,0,F) = ()
+  | tabulate(a,d,n,F) = (
+        print(Real.toString(a));
+        print("\t");
+        print(Real.toString(F(a)));
+        print("\n");
+        tabulate(a+d,d,n-1,F));
+
+tabulate(1.0,0.1,9,fn x => x*x);
+
+(*------------------------------------------------*)
+
+(* Es. 6 - Simple Map *)
+
+fun simpleMap (F,nil) = nil
+  | simpleMap (F,x::xs) = F(x) :: simpleMap(F,xs);
+
+simpleMap(fn x => if x < 0.0 then 0.0 else x, [0.0,1.0,~2.1,~2.3]);
+
+(*------------------------------------------------*)
+
+(* Es. 7 - Riduci *)
+
+exception EmptyList;
+
+fun reduce (F,nil) = raise EmptyList
+  | reduce (F,[a]) = a
+  | reduce (F,x::xs) = F(x, reduce(F,xs));
+
+reduce(fn (x,a) => if x>a then x else a, [1.1,2.2,4.4,3.3]);
+
+(*------------------------------------------------*)
+
+(* Es. 8 - Filtro *)
+
+fun filter (P,nil) = nil
+  | filter (P,x::xs) =
+        if P(x) then x::filter(P,xs)
+        else filter (P,xs);
+
+filter(fn x => if x > 0.0 then true else false, [1.1,~1.2,~1.3,1.4]);
+
+(*------------------------------------------------*)
+
+(* Es. 9 - Leggi e somma *)
+
+fun readAndSum (infile) =
+    if TextIO.endOfStream(infile) then
+        0
+    else
+        let
+            val number = TextIO.inputLine(infile)
+        in
+            valOf(Int.fromString(valOf(number))) + readAndSum(infile)
+        end;
+
+val infile = TextIO.openIn("file.txt");
+readAndSum(infile);
+
+(*------------------------------------------------*)
+
+(* Es. 10 - Apllica lista funzioni *)
+
+fun applyList (nil, _) = nil
+  | applyList (F::Fs, x) = F(x)::applyList(Fs, x);
+
+applyList([fn x => x*x, fn x => x+1], 10);
