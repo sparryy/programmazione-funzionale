@@ -54,7 +54,6 @@ inOrder(Node ("ML", Node ("as", Node ("a", Empty, Empty), Node ("in", Empty, Emp
 
 (*------------------------------------------------*)
 
-*)
 (* Es. 7 - Map Tree *)
 
 datatype ('a,'b) mapTree =
@@ -69,3 +68,17 @@ fun sumTree (Empty) = 0
   | sumTree (Node((x,y),l,r)) = y+sumTree(l)+sumTree(r);
 
 sumTree (Node(("a",1), Node(("c",2), Empty, Node(("d",3), Empty, Empty)), Empty));
+
+(*------------------------------------------------*)
+
+*)
+(* Es. 9 - Conta nodi interni *)
+
+(* poi elimina *)
+datatype 'a btree = 
+  Empty |
+  Node of 'a * 'a btree * 'a btree;
+
+fun countInternalNodes F Empty = 0
+  | countInternalNodes F Node(v, l, r) =
+    if F(v) = true then 
