@@ -104,8 +104,43 @@ end;
 
 structure StringStack: STRINGS = struct
     type t = string list
-    fun create = Stack.create()
+    val create = Stack.create()
     fun push x s = Stack.push x s
     fun pop s = Stack.pop s
     fun isEmpty s = Stack.isEmpty s
+end;
+
+(*------------------------------------------------*)
+
+(* Es. 10 - Queue *)
+
+exception EmptyQueue;
+
+structure Queue = struct
+    type 'a queue = 'a list
+    fun create() = []
+    fun enqueue a q = q::a
+    fun dequeue q = if q = nil then raise EmptyQueue else (hd(q), tl(q))
+    fun isEmpty q = if q = nil then true else false
+end;
+
+(*------------------------------------------------*)
+
+(* Es. 11 - Pair Queue *)
+
+signature PAIRQUEUE =
+sig
+    type t = (string*int) list
+    val create: (string*int) list
+    val enqueue: (string*int) -> (string*int) list -> (string*int) list
+    val dequeue: (string*int) list -> (string*int) * (string*int) list
+    val isEmpty: (string*int) list -> bool
+end;
+
+structure PairQueue: PAIRQUEUE = struct
+    type t = (string*int) list
+    val create = Queue.create()
+    fun enqueue a q = Queue.enqueue a q
+    fun dequeue q = Queue.dequeue q
+    fun isEmpty q = Queue.isEmpty q
 end;
