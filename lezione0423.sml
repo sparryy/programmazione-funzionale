@@ -1,6 +1,5 @@
 (* Lezione 23/4 *)
 
-(* Commento per exec
 (*------------------------------------------------*)
 
 (* Es. 1 - Curry *)
@@ -71,7 +70,6 @@ sumTree (Node(("a",1), Node(("c",2), Empty, Node(("d",3), Empty, Empty)), Empty)
 
 (*------------------------------------------------*)
 
-*)
 (* Es. 9 - Conta nodi interni *)
 
 (* poi elimina *)
