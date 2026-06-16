@@ -5,7 +5,7 @@ fun n_rows ([]) = 0
   | n_rows (x) = 1 + n_rows(tl(x));
 fun n_cols ([]) = []
   | n_cols (x) = n_rows(hd(x))::n_cols(tl(x));
-fun cell_at_x_y (x, y, g) = if (x < 0 orelse x >= List.nth(n_cols(g), y)) andalso (y < 0 orelse y >= n_rows(g))
+fun cell_at_x_y (x, y, g) = if x < 0 orelse y < 0 orelse y >= n_rows(g) orelse x >= List.nth(n_cols(g), x)
                             then Dead
                             else List.nth(List.nth(g, y), x);
 fun cell_int (x, y, g) = let
@@ -13,7 +13,7 @@ fun cell_int (x, y, g) = let
         val rows = n_rows(g)
         val xcol = List.nth(cols, y)
     in
-        if (x < 0 orelse x >= xcol) andalso (y < 0 orelse y >= rows) then 0 else
+        if x < 0 orelse y < 0 orelse y >= rows orelse x >= xcol then 0 else
             if cell_at_x_y(x, y, g) = Alive then 1 else 0
     end;
 fun count_live_neighbours (x, y, g) = cell_int(x-1, y-1, g) +
