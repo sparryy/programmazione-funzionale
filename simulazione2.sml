@@ -7,7 +7,7 @@ fun n_cols ([]) = []
   | n_cols (x) = n_rows(hd(x))::n_cols(tl(x));
 fun cell_at_x_y (x, y, g) = if x < 0 orelse y < 0 orelse y >= n_rows(g) orelse x >= List.nth(n_cols(g), x)
                             then Dead
-                            else List.nth(List.nth(g, y), x);
+                            else List.nth((List.nth(g, y)), x);
 fun cell_int (x, y, g) = let
         val cols = n_cols(g)
         val rows = n_rows(g)
